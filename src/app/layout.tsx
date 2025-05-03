@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <nav style={{ padding: '1rem', backgroundColor: '#eee' }}>
-          <a href="/">Home</a> | <a href="/about">About</a>
+          <Link href="/">Home</Link> | <Link href="/about">About</Link>
         </nav>
         {children}
       </body>

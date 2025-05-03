@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const dynamic = 'force-dynamic';
 
 interface Params {
@@ -22,7 +24,7 @@ export default async function ItemDetail({ params }: Params) {
       }}>
         <h1 className="text-xl font-bold">{item.title}</h1>
         <div>
-          <img src={item.image} alt={item.title} style={{
+          <Image src={item.image} alt={item.title} style={{
             width: '100%',
             height: 'auto',
             borderRadius: '5px',
