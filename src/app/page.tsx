@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export const dynamic = 'force-dynamic'; // Ensure SSR
 
@@ -11,7 +12,7 @@ export default async function HomePage() {
       <div style={{ padding: '20px' }}>
       <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Store Items</h1>
       <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
-        {products.map((item: any) => (
+        {products.map((item: {id: string, image: string, title: string, price: string}) => (
           <div
             key={item.id}
             style={{
@@ -22,15 +23,15 @@ export default async function HomePage() {
               backgroundColor: '#f9f9f9',
             }}
           >
-            <a href={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-              <img
+            <Link href={`/item/${item.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <Image
                 src={item.image}
                 alt={item.title}
                 style={{ height: '150px', objectFit: 'contain', marginBottom: '10px' }}
               />
               <div style={{ fontSize: '14px', fontWeight: 'bold' }}>{item.title}</div>
               <div style={{ marginTop: '5px', color: 'green' }}>${item.price}</div>
-            </a>
+            </Link>
           </div>
         ))}
       </div>
