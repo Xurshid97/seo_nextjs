@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Popup from "./popup/Popup";
 
 export const dynamic = 'force-dynamic'; // Ensure SSR
 
@@ -11,6 +12,7 @@ export default async function HomePage() {
     <main>
       <div style={{ padding: '20px' }}>
       <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>Store Items</h1>
+      <Popup />
       <div style={{ display: 'grid', gap: '20px', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))' }}>
         {products.map((item: {id: string, image: string, title: string, price: string}) => (
           <div
